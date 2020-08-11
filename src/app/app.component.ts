@@ -59,4 +59,8 @@ export class AppComponent {
   eliminar(indice: number) {
     this.nombres.splice(indice, 1);
   }
+
+  clickCarrito(id: number) {
+    console.log('producto->' + id);
+  }
 }

@@ -1,9 +1,21 @@
 <input type="text" [(ngModel)]='title'>
 
+
+
+
 {{title}}
 
 <div *ngIf="title === 'anderson'">
   hola {{title}} como estas 
+</div>
+
+
+<div [ngSwitch]="title">
+  <p *ngSwitchCase="'nicolas'">soy nicolas</p>
+  <p *ngSwitchCase="'anderson'">soy anderson</p>
+  <p *ngSwitchCase="'alejandra'">soy alejandra</p>
+  <p *ngSwitchDefault>busca de nuevo</p>
+
 </div>
 
 <button (click)="agregarNombre()">Agregar </button>
@@ -14,8 +26,6 @@
 </ul>
 
 
-<div *ngFor="let producto of productos">
-{{producto.titulo}}
-<img [src]="producto.image" alt="" style="width: 20%;height: 20%;">
-${{producto.pricio}}
+<div *ngFor="let producto_ver of productos">
+  <app-producto (eventoCarrito)="clickCarrito($event)" [producto]="producto_ver"></app-producto>
 </div>
